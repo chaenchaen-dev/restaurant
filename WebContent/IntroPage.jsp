@@ -29,7 +29,7 @@
 			<label>* 전화번호 :</label> <input type = "tel" name = "PHONENUM" maxlength= "12" required><br/><br/>
 			
 			<label>취미 :</label> <input> <br/><br/>
-			<label>선호매장 :</label> <input> <br/><br/> <!-- 매장 검색 후 선호매장을 선택해야할듯 -->
+			<label>선호매장 :</label> <input> <br/><br/> <!-- 매장 검색 후 선호매장을 선택해야할듯 아니면 매장 리스트보여주기 -->
 			
 			<input type = "submit" value = "회원가입" >
 			<input type = "button" value = "닫기" onclick= "button2_click();"><br/> 

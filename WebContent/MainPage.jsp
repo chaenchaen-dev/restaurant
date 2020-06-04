@@ -27,7 +27,7 @@
 		</div>
 		</br>
 		
-<!-- 검색 결과 뽑는 iframe -->
+<!-- 검색 결과 뽑는 iframe 얘는 아직 미완성 src 는 iframe/MainPageIframe.jsp로 새로 저장해서만들기 위에 Iframe도 마찬가지-->
 
 		<div id="side_content_box">
 		<iframe id="if" name="param" src= "Iframe.jsp" style="display:block; width:45%; height: 100vh" frameborder="0" scrolling="no"></iframe>
