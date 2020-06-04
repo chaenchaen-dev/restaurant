@@ -4,6 +4,7 @@
 
      <%@ page import="java.io.PrintWriter" %>
       <%@ page import="ClassPackage.MemberDAO"%>
+      
       <%@ page import="ClassPackage.Administrator"%>
 
 <%
@@ -27,6 +28,7 @@
 		%>
 		
 			<jsp:useBean id="member" class="ClassPackage.MemberDAO" scope="session">
+			
 			<%-- <jsp:setProperty name="member" property="MEMNUM" value = "<%=memnum %>"  /> --%>
 			<jsp:setProperty name="member" property="ID" value = "<%=id %>"  />
 			<jsp:setProperty name="member" property="PWD" value = "<%=passwd %>"  />
