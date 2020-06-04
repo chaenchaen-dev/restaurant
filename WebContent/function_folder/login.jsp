@@ -15,7 +15,7 @@
 	Administrator administrator = new Administrator();
 	boolean bool1 = administrator.certifyAdmin(id, passwd);
 	
-	if(bool1){ // 페이지 이동 
+	if(bool1){ // 페이지 이동 관리자라면
 		response.sendRedirect("Adminimain.jsp");
 	}
 	else{
