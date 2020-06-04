@@ -22,7 +22,7 @@
 			
 			<label>아이디 :</label> <input type = "text" name = "ID" maxlength= "12" required><br/><br/>
 			<label>패스워드 :</label> <input type = "password" name = "PWD" maxlength= "12" required><br/><br/>
-			<p>> 회원 정보 입력     *표시는 필수 입력</p>
+			<p>* 표시는 필수 입력사항입니다.</p>
 			<label>* 이름 :</label> <input type = "text" name = "NAME" maxlength= "12" required><br/><br/>
 			<label>* 주소 :</label> <input type = "text" name = "ADDRESS" maxlength= "30" required> <br/><br/>
 			<label>* 생일 :</label> <input type = "date" name = "BIRTHDAY" required> <br/><br/>
