@@ -5,6 +5,7 @@ import java.sql.DriverManager;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
+import java.util.ArrayList;
 
 public class MemberDAO {
 
@@ -112,7 +113,105 @@ public class MemberDAO {
 				return true;
 			else
 				return false;
+		} // certifyMember()
+		
+		
+		
+		public int getMemNum(String id) throws SQLException {
+			PreparedStatement pstmt = null;
+			int result = 0;
+
+			String SQL = "select member_no from restaurant.member where id=?";
+
+			con = connection();
+			pstmt = con.prepareStatement(SQL);
+			pstmt.setString(1, id);
+
+			ResultSet rs = pstmt.executeQuery();
+			if (rs.next()) {
+				result = rs.getInt("member_no");
+			} else {
+				System.out.println("getMemNum : 존재 x");
+			}
+
+			rs.close();
+			pstmt.close();
+			con.close();
+
+			return result;
 		}
+		
+		//이건 유저 정보 유저 아이디랑 포인트 등급 순으로 출력
+		public ArrayList printUserInfo(int member_no) {
+			ArrayList<String[]> result = new ArrayList<String[]>();
+			PreparedStatement pstmt = null;
+			try {
+				String sql = "select id, point, grade from member where member_no =?";
+
+				con = connection();
+				pstmt = con.prepareStatement(sql);
+				pstmt.setInt(1, member_no);
+
+				ResultSet rs = pstmt.executeQuery();
+				while (rs.next()) {
+					String id = rs.getString("id");
+					String point = rs.getString("point");
+					String grade = rs.getString("grade");
+
+					String[] bookInfo = { id, point, grade };
+					result.add(bookInfo);
+				}
+				int cnt = rs.getRow();
+				rs.close();
+				pstmt.close();
+				con.close();
+				
+				if (cnt != 0)
+					System.out.println("-----------유저정보XXXXXXXXXXX");
+				else
+					System.out.println("-----OOOOOOOOOOOOOOOOOOOOOOO");
+				
+			} catch (SQLException e) {
+				e.printStackTrace();
+			}
+			return result;
+		}
+		
+		public ArrayList gradeHistory(int member_no) {
+			ArrayList<String[]> result = new ArrayList<String[]>();
+			PreparedStatement pstmt = null;
+			try {
+				String sql = "select change_date,grade from g_history where member_no =?";
+
+				con = connection();
+				pstmt = con.prepareStatement(sql);
+				pstmt.setInt(1, member_no);
+
+				ResultSet rs = pstmt.executeQuery();
+				while (rs.next()) {
+					String change_time = rs.getString("change_date");
+					String grade = rs.getString("grade");
+
+					String[] bookInfo = { change_time,grade };
+					result.add(bookInfo);
+				}
+				int cnt = rs.getRow();
+				rs.close();
+				pstmt.close();
+				con.close();
+				
+				if (cnt != 0)
+					System.out.println("-----------유저정보XXXXXXXXXXX");
+				else
+					System.out.println("-----OOOOOOOOOOOOOOOOOOOOOOO");
+				
+			} catch (SQLException e) {
+				e.printStackTrace();
+			}
+			return result;
+		}
+		
+		
 
 		public int getMEMBER_NO() {
 			return MEMBER_NO;
